@@ -1,0 +1,28 @@
+.main {
+  background-color: #eff;
+  width: 100%;
+  height: 90%;
+  padding-top: 1%;
+}
+
+.CardGroup {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: start;
+  background-color: #aaaaaa;
+  margin: auto;
+  width: 70%;
+  height: 100%;
+  gap: 3%;
+  overflow-y: scroll;
+}
+.card {
+  display: flex;
+  margin: 0 auto;
+  width: 90%;
+  height: 10%;
+  background-color: #d9d9d9;
+  align-items: start;
+  margin-top: 2%;
+}
