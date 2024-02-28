@@ -17,5 +17,14 @@ export class UserService {
     return user;
   }
 
-  async signUp(email: string, password: string) {}
+  async signin(name: string, email: string, password: string) {
+    const user = this.prisma.user.create({
+      data: {
+        name: name,
+        Email: email,
+        Password: password,
+      },
+    });
+    return user;
+  }
 }

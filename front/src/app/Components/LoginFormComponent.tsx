@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 const LoginFormComponent = () => {
   const router = useRouter();
+
   const handleSubmit = async (event: any) => {
     event?.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -34,7 +35,7 @@ const LoginFormComponent = () => {
   };
 
   return (
-    <form className={style.container} onSubmit={handleSubmit}>
+    <form id="loginForm" className={style.container} onSubmit={handleSubmit}>
       <div className={style.formCard}>
         <div className={style.form}>
           <div className={style.input}>
@@ -49,8 +50,8 @@ const LoginFormComponent = () => {
             />
           </div>
           <div className={style.formButtonGroup}>
-            <Button variant="contained">新規登録</Button>
-            <button type="submit">ログイン</button>
+            <Button>新規登録</Button>
+            <Button type="submit">ログイン</Button>
           </div>
         </div>
       </div>
