@@ -1,4 +1,11 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpException,
+  HttpStatus,
+  Post,
+} from '@nestjs/common';
 import { NotFoundError } from 'rxjs';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { UserService } from './user.service';
@@ -9,7 +16,14 @@ export class UserController {
 
   @Post('login')
   async login(@Body() body) {
-    const user = this.user.login(body.email, body.password);
-    return user;
+    try {
+      const user = await this.user.login(body.email, body.password);
+      return { user, message: 'Login successful' };
+    } catch (error) {
+      throw new HttpException(
+        { error: error.message },
+        HttpStatus.UNAUTHORIZED,
+      );
+    }
   }
 }
