@@ -6,10 +6,7 @@ import {
   HttpStatus,
   Post,
 } from '@nestjs/common';
-import { NotFoundError } from 'rxjs';
-import { PrismaService } from 'src/prisma/prisma.service';
 import { UserService } from './user.service';
-import { error } from 'console';
 
 @Controller('user')
 export class UserController {
